@@ -88,13 +88,13 @@ export FZF_BASE=/usr/share/fzf
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
   #tmux
-  zsh-autosuggestions
-  history-substring-search
-  zsh-syntax-highlighting
-  zsh-completions
   autoenv
-  fzf
   fasd
+  fzf
+  history-substring-search
+  zsh-autosuggestions
+  zsh-completions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh

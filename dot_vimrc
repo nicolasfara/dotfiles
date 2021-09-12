@@ -1,0 +1,85 @@
+" Nicolas Farabegoli VIM Config
+" nicolas.farabegoli@gmail.com
+
+" ---------------------------------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" ---- PLUGIN ----
+"Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'arcticicestudio/nord-vim'
+"Plugin 'ajmwagar/vim-deus'
+"Plugin 'dense-analysis/ale'
+Plugin 'alvan/vim-closetag'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Yggdroot/indentLine'
+Plugin 'cohama/lexima.vim'
+Plugin 'chrisbra/sudoedit.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'aperezdc/vim-template'
+Plugin 'lervag/vimtex'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" Put your non-Plugin stuff after this line
+
+" ─────────────────────────────────────────────────────────────────────── core ─
+if filereadable(expand("~/.vim/cfg/fix-typo.vim"))
+  source ~/.vim/cfg/fix-typo.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/indent.vim"))
+  source ~/.vim/cfg/indent.vim
+endif
+" ─────────────────────────────────────────────────────────────────────────────┘
+
+if filereadable(expand("~/.vim/cfg/colorscheme.vim"))
+  source ~/.vim/cfg/colorscheme.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/statusline.vim"))
+  source ~/.vim/cfg/statusline.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/ycm.vim"))
+  source ~/.vim/cfg/ycm.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/indentline.vim"))
+  source ~/.vim/cfg/indentline.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/lexima.vim"))
+  source ~/.vim/cfg/lexima.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/sudoedit.vim"))
+  source ~/.vim/cfg/sudoedit.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/table-mode.vim"))
+  source ~/.vim/cfg/table-mode.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/template.vim"))
+  source ~/.vim/cfg/template.vim
+endif
+
+if filereadable(expand("~/.vim/cfg/vimtex.vim"))
+  source ~/.vim/cfg/vimtex.vim
+endif
+
