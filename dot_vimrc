@@ -38,48 +38,48 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ─────────────────────────────────────────────────────────────────────── core ─
-if filereadable(expand("~/.vim/cfg/fix-typo.vim"))
-  source ~/.vim/cfg/fix-typo.vim
+if filereadable(expand("~/.vim/fix-typo.vim"))
+  source ~/.vim/fix-typo.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/indent.vim"))
-  source ~/.vim/cfg/indent.vim
+if filereadable(expand("~/.vim/indent.vim"))
+  source ~/.vim/indent.vim
 endif
 " ─────────────────────────────────────────────────────────────────────────────┘
 
-if filereadable(expand("~/.vim/cfg/colorscheme.vim"))
-  source ~/.vim/cfg/colorscheme.vim
+if filereadable(expand("~/.vim/colorscheme.vim"))
+  source ~/.vim/colorscheme.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/statusline.vim"))
-  source ~/.vim/cfg/statusline.vim
+if filereadable(expand("~/.vim/statusline.vim"))
+  source ~/.vim/statusline.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/ycm.vim"))
-  source ~/.vim/cfg/ycm.vim
+if filereadable(expand("~/.vim/ycm.vim"))
+  source ~/.vim/ycm.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/indentline.vim"))
-  source ~/.vim/cfg/indentline.vim
+if filereadable(expand("~/.vim/indentline.vim"))
+  source ~/.vim/indentline.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/lexima.vim"))
-  source ~/.vim/cfg/lexima.vim
+if filereadable(expand("~/.vim/lexima.vim"))
+  source ~/.vim/lexima.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/sudoedit.vim"))
-  source ~/.vim/cfg/sudoedit.vim
+if filereadable(expand("~/.vim/sudoedit.vim"))
+  source ~/.vim/sudoedit.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/table-mode.vim"))
-  source ~/.vim/cfg/table-mode.vim
+if filereadable(expand("~/.vim/table-mode.vim"))
+  source ~/.vim/table-mode.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/template.vim"))
-  source ~/.vim/cfg/template.vim
+if filereadable(expand("~/.vim/template.vim"))
+  source ~/.vim/template.vim
 endif
 
-if filereadable(expand("~/.vim/cfg/vimtex.vim"))
-  source ~/.vim/cfg/vimtex.vim
+if filereadable(expand("~/.vim/vimtex.vim"))
+  source ~/.vim/vimtex.vim
 endif
 
