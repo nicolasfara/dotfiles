@@ -86,11 +86,13 @@ export FZF_BASE=/usr/share/fzf
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
+plugins=(
   #tmux
   autoenv
   fasd
   fzf
+  git
+  gitignore
   history-substring-search
   zsh-autosuggestions
   zsh-completions
