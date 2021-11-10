@@ -1,0 +1,6 @@
+[Unit]
+Description=runrestic backup
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python /home/nicolas/.backup_script/backup.py
