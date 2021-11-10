@@ -1,6 +1,17 @@
 {{- $email := promptString "email" -}}
+{{- $restic_password := promptString "restic password" -}}
+{{- $restic_repository := promptString "restic repository" -}}
+{{- $backblaze_id := promptString "Backblaze account ID" -}}
+{{- $backblaze_key := promptString "Backblaze Key" -}}
+{{- $backup_path := promptString "Backup path" -}}
 [data]
     email = {{ $email | quote }}
+[data.restic]
+    path = {{ $backup_path | quote }}
+    password = {{ $restic_password | quote }}
+    repository = {{ $restic_repository | quote }}
+    b2accountid = {{ $b2accountid | quote }}
+    b2accountkey = {{ $b2accountkey | quote }}
 encryption = "gpg"
 [gpg]
     symmetric = true
