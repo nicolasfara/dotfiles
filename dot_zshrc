@@ -116,6 +116,8 @@ else
   export EDITOR='nvim'
 fi
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

@@ -1,0 +1,51 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8
+#
+# Copyright © 2021 Nicolas Farabegoli <nicolas.farabegoli@gmail.com>
+#
+# Distributed under terms of the MIT license.
+
+"""
+Restic backup script.
+"""
+import logging
+import subprocess
+import urllib3
+import certifi
+from datetime import datetime
+
+logging.basicConfig(level=logging.DEBUG)
+
+chat_id = {{ .telegram.bot.chatid | quote }}
+token = {{ .telegram.bot.token | quote }}
+
+bot_uri = "https://api.telegram.org/bot{0}/{1}"
+
+SUCCESS_MESSAGE = "&#x2705; Backup completed successfully&#x0a;<strong>Data:</strong> {0}"
+FAILURE_MESSAGE = "&#x274C; Backup failed!&#x0a;<strong>Data:</strong> {0}&#x0a;<strong>Exit code:</strong> {1}"
+
+def send_telegram_status(status, err = None):
+   logging.info("Send message to bot %s", bot_uri.format(token, "sendMessage"))
+   http = urllib3.PoolManager(
+      cert_reqs="CERT_REQUIRED",
+      ca_certs=certifi.where()
+   )
+
+   request_fileds = {
+      "chat_id": chat_id,
+      "parse_mode": "HTML",
+   }
+
+   if status != 0:
+      request_fileds["caption"] = FAILURE_MESSAGE.format(datetime.now(), status)
+      request_fileds["document"] = (datetime.now(), err)
+      http.request("POST", bot_uri.format(token, "sendDocument"), fields=request_fileds)
+   else:
+      request_fileds["text"] = SUCCESS_MESSAGE.format(datetime.now())
+      http.request("POST", bot_uri.format(token, "sendMessage"), fields=request_fileds)
+
+
+if __name__ == "__main__":
+   ret = subprocess.run(["/home/nicolas/.local/bin/runrestic", "-l", "debug"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
+   send_telegram_status(ret.returncode, ret.stdout)

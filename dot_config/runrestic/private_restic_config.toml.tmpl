@@ -1,0 +1,60 @@
+name = "system backup" # optional. if not set, the filename will be used without the extension
+
+repositories = [
+    "b2:julia-backup:backup/"
+    ]
+
+[execution]
+parallel = true
+retry_count = 10
+retry_backoff = "1:00 exponential"  # 00:00 = min:sec; 00:00:00 = hour:min:sec
+# strategies:
+#  - static (same duration every try)
+#  - linear (duration * retry number)
+#  - exponential
+
+[environment]
+RESTIC_PASSWORD = "jxyhdmH33vXK"
+B2_ACCOUNT_ID = "6fe05b787368"
+B2_ACCOUNT_KEY = "0027b2183a29bc04da55b805bf47a149f200d9ddfa"
+# or RESTIC_PASSWORD_FILE
+# https://restic.readthedocs.io/en/latest/040_backup.html#environment-variables
+
+[backup]
+sources = [
+    "/home/nicolas"
+    ]
+
+exclude_patterns = [
+    '*.log',
+    '*(trash|Trash)*',
+    '*.jar',
+    '*.cache/**',
+    '*.gradle/**',
+    '*.m2/**',
+    '*.npm/**',
+    '*.cargo/**',
+    '*.android/**',
+    '*.eclipse/**',
+    '*.idea-build/**',
+    '*.sbt/**',
+    '*.stmcube/**',
+    '*.visualvm/**',
+    '*.vscode-oss/**'
+    ]
+# exclude_files = []
+# exclude_if_present = []
+
+#pre_hooks = ["systemctl stop postgresql"]
+#post_hooks = ["systemctl start postgresql"]
+
+[prune]
+keep-last = 3
+keep-hourly = 2
+keep-weekly = 3
+keep-monthly = 5
+group-by = "host,paths"
+# https://restic.readthedocs.io/en/latest/060_forget.html#removing-snapshots-according-to-a-policy
+
+#[check]
+#checks = ["check-unused"]
