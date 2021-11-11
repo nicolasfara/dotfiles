@@ -30,15 +30,19 @@ exclude_patterns = [
   '$HOME/**/.gradle',
   '$HOME/**/.m2',
   '$HOME/**/.ivy2',
+  '$HOME/**/.android',
+  '$HOME/**/.eclipse',
+  '$HOME/**/.sbt',
+  '$HOME/**/.visualvm',
+  '$HOME/**/.stmcube',
+
+  # Node files
+  '$HOME/**/.npm',
 
   # If there's any folder called .cache it's a cache
   '$HOME/**/Cache',
   '$HOME/**/.cache',
   '$HOME/**/__pycache__',
-
-  # my development folders have too many copies of this
-  '$HOME/projects/*/venv',
-  '$HOME/projects/*/env',
 
   # WebDAV mounts
   '$HOME/.davfs2/cache',
@@ -52,17 +56,9 @@ exclude_patterns = [
   # I never keep important stuff there
   '$HOME/Downloads',
 
-  # should be empty, but - eh
-  '$HOME/mnt',
-
-  # where I restore stuff
-  '$HOME/restore',
-
   # firefox profiles, standard and snap install
   '$HOME/.mozilla/firefox/*/storage',
   '$HOME/.mozilla/firefox/*/minidumps',
-  '$HOME/snap/firefox/common/.mozilla/firefox/*/storage',
-  '$HOME/snap/firefox/common/.mozilla/firefox/*/minidumps',
 
   # Chromium
   '$HOME/.config/chromium/Default/Local Storage',
@@ -78,9 +74,6 @@ exclude_patterns = [
   '$HOME/.config/*/Cache',
   '$HOME/.config/*/GPUCache',
   '$HOME/.config/*/ShaderCache',
-  '$HOME/snap/*/*/.config/*/Cache',
-  '$HOME/snap/*/*/.config/*/GPUCache',
-  '$HOME/snap/*/*/.config/*/ShaderCache',
 
   # Microsoft VS Code follows different standards
   '$HOME/.config/Code/CachedData',
@@ -89,6 +82,9 @@ exclude_patterns = [
 
   # I only use Wine to run the odd executable, so I exclude it all
   '$HOME/.wine',
+
+  # Log files
+  '*.log',
 ]
 # exclude_files = []
 # exclude_if_present = []
