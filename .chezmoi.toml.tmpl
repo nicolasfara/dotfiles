@@ -4,14 +4,19 @@
 {{- $backblaze_id := promptString "Backblaze account ID" -}}
 {{- $backblaze_key := promptString "Backblaze Key" -}}
 {{- $backup_path := promptString "Backup path" -}}
+{{- $telegram_chat_id := promptString "Telegram backup bot chat ID" -}}
+{{- $telegram_key := promptString "Telegram bot API key" -}}
 [data]
     email = {{ $email | quote }}
+[data.telegram.bot]
+    chatid = {{ $telegram_chat_id | quote }}
+    token = {{ $telegram_key | quote }}
 [data.restic]
     path = {{ $backup_path | quote }}
     password = {{ $restic_password | quote }}
     repository = {{ $restic_repository | quote }}
-    b2accountid = {{ $b2accountid | quote }}
-    b2accountkey = {{ $b2accountkey | quote }}
+    b2accountid = {{ $backblaze_id | quote }}
+    b2accountkey = {{ $backblaze_key | quote }}
 encryption = "gpg"
 [gpg]
     symmetric = true
