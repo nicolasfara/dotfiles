@@ -1,0 +1,63 @@
+locations:
+  home:
+    from: {{ .restic.path }}
+    to: remote
+    hooks:
+      failure:
+        - notify-send -a "Backup" -t 5000 'Backup fail' 
+      success:
+        - notify-send -a "Backup" -t 5000 'Backup complete successfully' 
+    options:
+      backup:
+        exclude:
+          - '**/.gradle'
+          - '**/.m2'
+          - '**/.ivy2'
+          - '**/.android'
+          - '**/.eclipse'
+          - '**/.sbt'
+          - '**/.g8'
+          - '**/.visualvm'
+          - '**/Android'
+          - '**/.stm*'
+          - '**/.npm'
+          - '**/.arduino15'
+          - '**/.cargo'
+          - '**/**/.platformio'
+          - '**/**/.icons'
+          - '**/**/*Cache*'
+          - '**/**/.cache*'
+          - '**/**/__pycache__'
+          - '**/projects/*/venv'
+          - '**/projects/*/env'
+          - '**/.davfs2/cache'
+          - '**/.local'
+          - '**/.thunderbird/*/ImapMail'
+          - '**/Downloads'
+          - '**/mnt'
+          - '**/restore'
+          - '**/.mozilla/firefox/*/storage'
+          - '**/.mozilla/firefox/*/minidumps'
+          - '**/.config/chromium/Default/Local Storage'
+          - '**/.config/chromium/Default/Session Storage'
+          - '**/.config/chromium/Default/Application Cache'
+          - '**/.config/*/Cache'
+          - '**/.config/*/User'
+          - '**/.config/*/GPUCache'
+          - '**/.config/*/ShaderCache'
+          - '**/.config/Code/CachedData'
+          - '**/.config/Code/CachedExtensions'
+          - '**/.config/Code/logs'
+          - '**/.wine'
+          - '*.log'
+          - '*.jar'
+          - '**/lost+found'
+
+backends:
+  remote:
+    type: b2
+    path: '{{ .restic.repository }}'
+    key: {{ .restic.password }}
+    env:
+      B2_ACCOUNT_ID: {{ .restic.b2accountid }}
+      B2_ACCOUNT_KEY: {{ .restic.b2accountkey }}
