@@ -10,6 +10,13 @@ locations:
         - notify-send -a "Backup" -t 5000 'Backup complete successfully' 
         - 'printf "*Backup report*\n\`status\`: *COMPLETE*\n\`hostname\`: $(hostname)\n\`timestamp\`: $(date +%d/%m/%Y\ %H:%M:%S)" | telegram-send --format "markdown" --stdin'
     options:
+      forget:
+        keep-last: 5 # always keep at least 5 snapshots
+        keep-hourly: 3 # keep 3 last hourly snapshots
+        keep-daily: 4 # keep 4 last daily snapshots
+        keep-weekly: 1 # keep 1 last weekly snapshots
+        keep-monthly: 12 # keep 12 last monthly snapshots
+        keep-yearly: 7 # keep 7 last yearly snapshots
       backup:
         exclude:
           - '**/.gradle'
