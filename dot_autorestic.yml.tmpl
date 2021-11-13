@@ -5,8 +5,10 @@ locations:
     hooks:
       failure:
         - notify-send -a "Backup" -t 5000 'Backup fail' 
+        - 'printf "*Backup report*\n\`status\`: *COMPLETE*\n\`hostname\`: $(hostname)\n\`timestamp\`: $(date +%d/%m/%Y\ %H:%M:%S)" | telegram-send --format "markdown" --stdin'
       success:
         - notify-send -a "Backup" -t 5000 'Backup complete successfully' 
+        - 'printf "*Backup report*\n\`status\`: *COMPLETE*\n\`hostname\`: $(hostname)\n\`timestamp\`: $(date +%d/%m/%Y\ %H:%M:%S)" | telegram-send --format "markdown" --stdin'
     options:
       backup:
         exclude:
