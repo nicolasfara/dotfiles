@@ -2,6 +2,11 @@
   email = {{ .email | quote }}
   name = Nicolas Farabegoli
   username = nicolasfara
+  signingkey = {{ .gpgkey }}
+[commit]
+  gpgsign = true
+[pull]
+  rebase = true
 [core]
   editor = nvim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol

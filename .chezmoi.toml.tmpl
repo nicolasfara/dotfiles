@@ -1,4 +1,5 @@
 {{- $email := promptString "email" -}}
+{{- $gpgkey := promptString "GPG key" -}}
 {{- $restic_password := promptString "restic password" -}}
 {{- $restic_repository := promptString "restic repository" -}}
 {{- $backblaze_id := promptString "Backblaze account ID" -}}
@@ -8,6 +9,7 @@
 {{- $telegram_key := promptString "Telegram bot API key" -}}
 [data]
     email = {{ $email | quote }}
+    gpgkey = {{ $gpgkey | quote }}
 [data.telegram.bot]
     chatid = {{ $telegram_chat_id | quote }}
     token = {{ $telegram_key | quote }}
