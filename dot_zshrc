@@ -131,3 +131,5 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias l="ls"
 alias la="ls -las"
+alias vim="nvim"
+
