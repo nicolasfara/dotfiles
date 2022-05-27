@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:/home/nicolas/.local/bin"
+export PATH="$PATH:/home/nicolas/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin/"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
