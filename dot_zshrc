@@ -93,11 +93,16 @@ plugins=(
   fzf
   git
   gitignore
+  gpg-agent
   history-substring-search
+  transfer
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting
 )
+
+# FZF config
+export FZF_BASE=/usr/bin/fzf
 
 source $ZSH/oh-my-zsh.sh
 
