@@ -93,6 +93,7 @@ plugins=(
   fzf
   git
   gitignore
+  gradle
   gpg-agent
   history-substring-search
   sudo
