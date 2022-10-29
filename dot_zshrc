@@ -112,7 +112,6 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin/"
 export PATH="$PATH:$HOME/.ghcup/bin"
 
 # You may need to manually set your language environment
