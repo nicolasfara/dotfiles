@@ -1,14 +1,21 @@
 version: 2
+
+extras:
+  healthchecks: &healthchecks
+    hooks:
+      before:
+        - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Starting backup for location: ${AUTORESTIC_LOCATION}" https://hc-ping.com/{{ .restic.healthchecks }}/start'
+      failure:
+        - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Backup failed for location: ${AUTORESTIC_LOCATION}" https://hc-ping.com/{{ .restic.healthchecks }}/fail'
+      success:
+        - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Backup successful for location: ${AUTORESTIC_LOCATION}" https://hc-ping.con/{{ .restic.healthchecks }}'
+
 locations:
   home:
+    <<: *healthchecks
     from: {{ .restic.path }}
     to: remote
     forget: prune
-    hooks:
-      failure:
-        - notify-send -a "Backup" -t 5000 'Backup fail' 
-      success:
-        - notify-send -a "Backup" -t 5000 'Backup complete successfully' 
     options:
       forget:
         keep-daily: 7 # keep 7 last daily snapshots
@@ -17,7 +24,7 @@ locations:
         keep-yearly: 1 # keep 1 last yearly snapshots
       backup:
         exclude:
-	  - '**/.pulse'
+          - '**/.pulse'
           - '**/.gradle'
           - '**/.m2'
           - '**/.ivy2'
