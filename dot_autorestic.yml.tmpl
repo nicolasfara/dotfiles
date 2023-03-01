@@ -8,7 +8,7 @@ extras:
       failure:
         - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Backup failed for location: ${AUTORESTIC_LOCATION}" https://hc-ping.com/{{ .restic.healthchecks }}/fail'
       success:
-        - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Backup successful for location: ${AUTORESTIC_LOCATION}" https://hc-ping.con/{{ .restic.healthchecks }}'
+        - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Backup successful for location: ${AUTORESTIC_LOCATION}" https://hc-ping.com/{{ .restic.healthchecks }}'
 
 locations:
   home:
@@ -24,6 +24,8 @@ locations:
         keep-yearly: 1 # keep 1 last yearly snapshots
       backup:
         exclude:
+          - '**/.config/pulse'
+          - '**/.mozilla'
           - '**/.pulse'
           - '**/.gradle'
           - '**/.m2'
