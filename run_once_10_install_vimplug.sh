@@ -11,4 +11,4 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 
 nvim +PlugInstall +qall
 pip3 install -U neovim
-${XDG_DATA_HOME:-$HOME/.local/share}/nvim/youcompleteme/install.py --clang-completer --rust-completer --java-completer --ninja
+${XDG_DATA_HOME:-$HOME/.local/share}/nvim/plugged/youcompleteme/install.py --clang-completer --rust-completer --java-completer --ninja
