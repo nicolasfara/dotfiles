@@ -89,6 +89,8 @@ export FZF_BASE=/usr/share/fzf
 plugins=(
   #tmux
   autoenv
+  docker
+  docker-compose
   fasd
   fzf
   git
