@@ -1,0 +1,27 @@
+name: CI/CD Pipeline
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+      - name: Setup container
+        run: pacman -Syu --noconfirm chezmoi git
+      - name: Copy configuration file
+        run: |
+          mkdir -p $HOME/.config/chezmoi
+          cp .chezmoi.toml.example $HOME/.config/chezmoi/chezmoi.toml
+          sed -i 's/GPG_PASSPHRASE/${{ secrets.GPG_PASSPHRASE }}/g' $HOME/.config/chezmoi/chezmoi.toml
+          cat $HOME/.config/chezmoi/chezmoi.toml
+      - name: Run chezmoi
+        run: |
+          chezmoi --config $HOME/.config/chezmoi/chezmoi.toml init ${{ github.server_url }}/${{ github.repository }}.git
+          chezmoi apply --verbose

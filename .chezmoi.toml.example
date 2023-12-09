@@ -1,0 +1,14 @@
+[data]
+    email = "foo@bar.com"
+    gpgkey = "0123456789ABCDEFG"
+[data.restic]
+    path = "/home/foo"
+    password = "foobarfoo"
+    repository = "my-repository"
+    b2accountid = "bbaccounts"
+    b2accountkey = "bbkey"
+    healthchecks = "1234567"
+encryption = "gpg"
+[gpg]
+    symmetric = true
+    args = ["--batch", "--passphrase", "GPG_PASSPHRASE", "--no-symkey-cache"]
