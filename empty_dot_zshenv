@@ -4,10 +4,10 @@ export PATH="$PATH:$HOME/.ghcup/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 # Environment variable for ESP32 development
-export LIBCLANG_PATH="/home/nicolas/.espressif/tools/xtensa-esp32-elf-clang/esp-15.0.0-20221201-x86_64-unknown-linux-gnu/esp-clang/lib"
-export PATH=/home/nicolas/.espressif/tools/xtensa-esp32s3-elf/esp-2021r2-patch5-8_4_0/xtensa-esp32s3-elf/bin:$PATH
-export PATH=/home/nicolas/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8_4_0/xtensa-esp32-elf/bin:$PATH
-export PATH=/home/nicolas/.espressif/tools/riscv32-esp-elf/esp-2021r2-patch5-8_4_0/riscv32-esp-elf/bin:$PATH
-export PATH=/home/nicolas/.espressif/tools/xtensa-esp32s2-elf/esp-2021r2-patch5-8_4_0/xtensa-esp32s2-elf/bin:$PATH
-export PATH=/home/nicolas/.espressif/tools/riscv32-esp-elf/esp-2021r2-patch5-8_4_0/riscv32-esp-elf/bin:$PATH
+export LIBCLANG_PATH="$HOME/.espressif/tools/xtensa-esp32-elf-clang/esp-15.0.0-20221201-x86_64-unknown-linux-gnu/esp-clang/lib"
+export PATH=$HOME/.espressif/tools/xtensa-esp32s3-elf/esp-2021r2-patch5-8_4_0/xtensa-esp32s3-elf/bin:$PATH
+export PATH=$HOME/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8_4_0/xtensa-esp32-elf/bin:$PATH
+export PATH=$HOME/.espressif/tools/riscv32-esp-elf/esp-2021r2-patch5-8_4_0/riscv32-esp-elf/bin:$PATH
+export PATH=$HOME/.espressif/tools/xtensa-esp32s2-elf/esp-2021r2-patch5-8_4_0/xtensa-esp32s2-elf/bin:$PATH
+export PATH=$HOME/.espressif/tools/riscv32-esp-elf/esp-2021r2-patch5-8_4_0/riscv32-esp-elf/bin:$PATH
 
