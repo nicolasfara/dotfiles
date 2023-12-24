@@ -1,6 +1,7 @@
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.ghcup/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # Environment variable for ESP32 development
 export LIBCLANG_PATH="/home/nicolas/.espressif/tools/xtensa-esp32-elf-clang/esp-15.0.0-20221201-x86_64-unknown-linux-gnu/esp-clang/lib"
