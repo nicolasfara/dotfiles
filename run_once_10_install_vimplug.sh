@@ -9,6 +9,6 @@
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+yay -S --noconfirm neovim python-neovim cmake ninja jdk-openjdk
 nvim +PlugInstall +qall
-yay -S --noconfirm python-neovim cmake ninja jdk-openjdk
 ${XDG_DATA_HOME:-$HOME/.local/share}/nvim/plugged/youcompleteme/install.py --clang-completer --rust-completer --java-completer --ninja
