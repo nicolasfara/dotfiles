@@ -1,21 +1,21 @@
-{{- $email := promptString "email" -}}
-{{- $gpgkey := promptString "GPG key" -}}
-{{- $restic_password := promptString "restic password" -}}
-{{- $restic_repository := promptString "restic repository" -}}
-{{- $backblaze_id := promptString "Backblaze account ID" -}}
-{{- $backblaze_key := promptString "Backblaze Key" -}}
-{{- $backup_path := promptString "Backup path" -}}
-{{- $healthchecks := promptString "Healthchecks device id" -}}
+{{- $email := promptStringOnce . "email" "What is your email address" -}}
+{{- $gpgkey := promptStringOnce . "gpgkey" "GPG key" -}}
+{{- $resticpassword := promptStringOnce . "resticpassword" "restic password" -}}
+{{- $resticrepository := promptStringOnce . "resticrepository" "restic repository" -}}
+{{- $backblazeid := promptStringOnce . "backblazeid" "Backblaze account ID" -}}
+{{- $backblazekey := promptStringOnce . "backblazekey" "Backblaze Key" -}}
+{{- $backuppath := promptStringOnce . "backuppath" "Backup path" -}}
+{{- $healthchecks := promptStringOnce . "healthchecks" "Healthchecks device id" -}}
 
 [data]
     email = {{ $email | quote }}
     gpgkey = {{ $gpgkey | quote }}
 [data.restic]
-    path = {{ $backup_path | quote }}
-    password = {{ $restic_password | quote }}
-    repository = {{ $restic_repository | quote }}
-    b2accountid = {{ $backblaze_id | quote }}
-    b2accountkey = {{ $backblaze_key | quote }}
+    path = {{ $backuppath | quote }}
+    password = {{ $resticpassword | quote }}
+    repository = {{ $resticrepository | quote }}
+    b2accountid = {{ $backblazeid | quote }}
+    b2accountkey = {{ $backblazekey | quote }}
     healthchecks = {{ $healthchecks | quote }}
 encryption = "gpg"
 [gpg]

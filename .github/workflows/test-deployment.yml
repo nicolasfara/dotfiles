@@ -21,7 +21,9 @@ jobs:
           cp .chezmoi.toml.example $HOME/.config/chezmoi/chezmoi.toml
           sed -i 's/GPG_PASSPHRASE/${{ secrets.GPG_PASSPHRASE }}/g' $HOME/.config/chezmoi/chezmoi.toml
           cat $HOME/.config/chezmoi/chezmoi.toml
+          mkdir -p ~/.local/share/chezmoi
       - name: Run chezmoi
         run: |
           chezmoi --config $HOME/.config/chezmoi/chezmoi.toml init ${{ github.server_url }}/${{ github.repository }}.git
-          chezmoi apply --verbose
+          chezmoi doctor
+          chezmoi apply --verbose --no-tty
