@@ -1,9 +1,7 @@
 [Unit]
-Description=Run runrestic backup
-
+Description=Backup with autorestic daily
 [Timer]
 OnCalendar=daily
 Persistent=true
-
 [Install]
 WantedBy=timers.target
