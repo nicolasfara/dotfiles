@@ -1,5 +1,8 @@
 [Unit]
 Description=Autorestic backup service (data pruning)
+After=network-online.target
+Wants=network-online.target
+
 [Service]
 Type=oneshot
 ExecStart=autorestic forget --verbose --all --prune

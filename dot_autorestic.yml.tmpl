@@ -8,7 +8,7 @@ extras:
       failure:
         - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Backup failed for location: ${AUTORESTIC_LOCATION}" https://hc-ping.com/{{ .restic.healthchecks }}/fail'
       success:
-        - 'curl -m 10 --retry 5 -X POST -H "Content-Type: text/plain" --data "Backup successful for location: ${AUTORESTIC_LOCATION}" https://hc-ping.com/{{ .restic.healthchecks }}'
+        - "curl -m 10 --retry 5 -X POST -H \"Content-Type: text/plain\" --data \"Backup successful for location: ${AUTORESTIC_LOCATION}\n\nCreated snapshot: ${AUTORESTIC_SNAPSHOT_ID_0}\n\nProcessed files: ${AUTORESTIC_PROCESSED_FILES_0}\nProcessed duration: ${AUTORESTIC_PROCESSED_DURATION_0}\" https://hc-ping.com/{{ .restic.healthchecks }}"
 
 locations:
   home:
@@ -23,52 +23,11 @@ locations:
         keep-monthly: 2 # keep 2 last monthly snapshots
         keep-yearly: 1 	# keep 1 last yearly snapshots
       backup:
-        exclude:
-          - '**/.config/pulse'
-          - '**/.mozilla'
-          - '**/.pulse'
-          - '**/.gradle'
-          - '**/.m2'
-          - '**/.ivy2'
-          - '**/.android'
-          - '**/.eclipse'
-          - '**/.sbt'
-          - '**/.g8'
-          - '**/.visualvm'
-          - '**/Android'
-          - '**/.stm*'
-          - '**/.npm'
-          - '**/.arduino15'
-          - '**/.cargo'
-          - '**/**/.platformio'
-          - '**/**/.icons'
-          - '**/**/*Cache*'
-          - '**/**/.cache*'
-          - '**/**/__pycache__'
-          - '**/projects/*/venv'
-          - '**/projects/*/env'
-          - '**/.davfs2/cache'
-          - '**/.local'
-          - '**/.thunderbird/*/ImapMail'
-          - '**/Downloads'
-          - '**/mnt'
-          - '**/restore'
-          - '**/.mozilla/firefox/*/storage'
-          - '**/.mozilla/firefox/*/minidumps'
-          - '**/.config/chromium/Default/Local Storage'
-          - '**/.config/chromium/Default/Session Storage'
-          - '**/.config/chromium/Default/Application Cache'
-          - '**/.config/*/Cache'
-          - '**/.config/*/User'
-          - '**/.config/*/GPUCache'
-          - '**/.config/*/ShaderCache'
-          - '**/.config/Code/CachedData'
-          - '**/.config/Code/CachedExtensions'
-          - '**/.config/Code/logs'
-          - '**/.wine'
-          - '*.log'
-          - '*.jar'
-          - '**/lost+found'
+        exclude-if-present:
+          - .nobackup
+          - .git
+        exclude-file:
+          - {{ .restic.path }}/.excludes.txt
 
 backends:
   remote:
