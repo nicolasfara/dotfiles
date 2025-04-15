@@ -3,7 +3,7 @@
 
 # Disable specific steps - same options as the command line flag
 #disable = ["system", "emacs"]
-disable = ["gnome_shell_extensions", "containers", "vagrant"]
+disable = ["gnome_shell_extensions", "containers", "vagrant", "auto_cpufreq", "pipx"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
